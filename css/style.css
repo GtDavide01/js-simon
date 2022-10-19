@@ -4,6 +4,11 @@
     margin: 0;
     padding: 0;
 }
+body{
+    background-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    font-style: oblique;
+}
 p{
     font-size: 4rem;
     text-align: center;

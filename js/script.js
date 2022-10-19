@@ -40,30 +40,10 @@ const timer = setTimeout(function(){
       randomNum.classList.add("none");
 },10000)
 const timerUserNumber = setTimeout(function(){
-    //Creo ciclo for per chiedere all'utente 5 numeri tramite prompt e li salvo nell'array
-    for( let i  =  0 ; i<5 ; i++){
-        //Chiedo all'utente il numero tramite prompt
-        const numberChoiceUser = parseInt(prompt("Inserisci un numero che ricordi di vaer visto..."));
-        //salvo il numero inserito dall'utente nell'array
-        userNumber.push(numberChoiceUser);
-        //Stampo nell'html i numeri inseriti dall'utente 
-        userNumberHtml.innerHTML += " "+userNumber[i];
-        
-    }
-    console.log(userNumber);
-    //Confronto i valori dei due Array 
-    let nNumberEquals = 0;
-    for ( let i=0 ; i < arrayRandomNum.length ; i++){
-        let temp = arrayRandomNum[i];
-        for ( let j=0; j < userNumber.length ; j++){
-        let temp2 = userNumber[j];
-        if ( temp == temp2 ){
-        nNumberEquals++;
-        result.innerHTML += " "+temp ;
-        }
-    }
-    }
-    resultTot.innerHTML += nNumberEquals;
+    //richiamo funzione per chiedere 5 numeri all'utente
+    requestNumber(userNumber);
+    //richiamo funzione per confrontare i due array 
+    confrontArray(arrayRandomNum , userNumber);
 },11000)
 
 
@@ -82,3 +62,34 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
 }
 
+
+//funzione per richiedere 5 numeri all'utente
+function requestNumber (array){
+    //Creo ciclo for per chiedere all'utente 5 numeri tramite prompt e li salvo nell'array
+   for( let i  =  0 ; i<5 ; i++){
+        //Chiedo all'utente il numero tramite prompt
+        const numberChoiceUser = parseInt(prompt("Inserisci un numero che ricordi di vaer visto..."));
+        //salvo il numero inserito dall'utente nell'array
+        array.push(numberChoiceUser);
+        //Stampo nell'html i numeri inseriti dall'utente 
+        userNumberHtml.innerHTML += " "+array[i];
+    
+}
+}
+   
+//funzione per confrontare due array e restitusci la quantia di numeri uguali e quali
+function confrontArray (array1 , array2){
+        //Confronto i valori dei due Array 
+        let nNumberEquals = 0;
+        for ( let i=0 ; i < array1.length ; i++){
+            let temp = array1[i];
+            for ( let j=0; j < array2.length ; j++){
+            let temp2 = array2[j];
+            if ( temp == temp2 ){
+            nNumberEquals++;
+            result.innerHTML += " "+temp ;
+            }
+        }
+        }
+        resultTot.innerHTML += nNumberEquals;
+}
