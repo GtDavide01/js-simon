@@ -4,6 +4,15 @@
     margin: 0;
     padding: 0;
 }
+.container{
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+}
 body{
     background-color: antiquewhite;
     font-family: 'Times New Roman', Times, serif;
@@ -15,4 +24,11 @@ p{
 }
 .none{
     display: none;
+}
+button{
+    font-size: 2rem;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    background-color:azure
+    border: 1px solid black;
 }
